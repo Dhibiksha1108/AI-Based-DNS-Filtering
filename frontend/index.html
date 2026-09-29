@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Based DNS Filtering</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>AI-Based DNS Filtering</h1>
+            <p class="subtitle">Real-Time Threat Intelligence & Machine Learning Domain Security Analysis</p>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <!-- Domain Analysis Input Section -->
+        <section class="card input-card">
+            <h2>Analyze Domain Query</h2>
+            <form id="analyzeForm" class="analysis-form">
+                <div class="input-group">
+                    <input type="text" id="domainInput" placeholder="Enter domain name (e.g., google.com)" required autocomplete="off" spellcheck="false">
+                    <button type="submit" id="analyzeBtn" class="btn btn-primary">Analyze Domain</button>
+                    <button type="button" id="clearBtn" class="btn btn-secondary">Clear</button>
+                </div>
+                <p id="inputError" class="input-error" style="display: none;"></p>
+            </form>
+        </section>
+
+        <!-- Loading Indicator -->
+        <div id="loadingState" class="card loading-card" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing domain query across Threat Intelligence feeds and ML models...</p>
+        </div>
+
+        <!-- Analysis Results Section -->
+        <section id="resultsSection" class="card results-card" style="display: none;">
+            <div class="results-header">
+                <h2>Analysis Results</h2>
+                <div id="statusBadge" class="status-badge"></div>
+            </div>
+
+            <div class="domain-info">
+                <p><strong>Queried Domain:</strong> <span id="resDomain"></span></p>
+                <p><strong>Normalized Domain:</strong> <span id="resNormDomain"></span></p>
+                <p class="decision-reason"><strong>Decision Reason:</strong> <span id="resReason"></span></p>
+            </div>
+
+            <div class="grid-2col">
+                <!-- Threat Intelligence Card -->
+                <div class="sub-card">
+                    <h3>Threat Intelligence Check</h3>
+                    <p><strong>Source:</strong> <span id="resTiSource"></span></p>
+                    <p><strong>Feed Status:</strong> <span id="resTiStatus"></span></p>
+                    <p><strong>Malicious Indicator:</strong> <span id="resTiMalicious"></span></p>
+                </div>
+
+                <!-- Machine Learning Card -->
+                <div class="sub-card">
+                    <h3>Machine Learning Classifier</h3>
+                    <p><strong>Predicted Class:</strong> <span id="resMlClass" class="highlight-text"></span></p>
+                    
+                    <h4>Class Probabilities</h4>
+                    <div class="probability-bars">
+                        <div class="prob-item">
+                            <div class="prob-label"><span>Benign</span><span id="probBenignVal">0%</span></div>
+                            <div class="bar-container"><div id="barBenign" class="bar bar-benign" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="prob-item">
+                            <div class="prob-label"><span>DGA Malware</span><span id="probDgaVal">0%</span></div>
+                            <div class="bar-container"><div id="barDga" class="bar bar-dga" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="prob-item">
+                            <div class="prob-label"><span>DNS Tunnelling</span><span id="probTunnelVal">0%</span></div>
+                            <div class="bar-container"><div id="barTunnel" class="bar bar-tunnel" style="width: 0%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Information & How It Works -->
+        <div class="grid-2col info-grid">
+            <section class="card">
+                <h2>System Information</h2>
+                <ul class="system-info-list">
+                    <li><strong>ML Model:</strong> Random Forest Classifier (100 Trees)</li>
+                    <li><strong>Target Classes:</strong> Benign, DGA, DNS Tunnelling</li>
+                    <li><strong>Threat Intelligence:</strong> URLhaus by abuse.ch</li>
+                    <li><strong>Backend Service:</strong> FastAPI (Python 3.14)</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>How It Works</h2>
+                <div class="workflow">
+                    <div class="step">1. Domain Query Input</div>
+                    <div class="arrow">↓</div>
+                    <div class="step">2. Threat Intelligence Check (URLhaus)</div>
+                    <div class="arrow">↓</div>
+                    <div class="step">3. ML Feature Extraction & Random Forest Classification</div>
+                    <div class="arrow">↓</div>
+                    <div class="step">4. Deterministic Security Decision (ALLOW / BLOCK)</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AI-Based DNS Filtering using Threat Intelligence and Machine Learning | Inspired by SIH260003</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

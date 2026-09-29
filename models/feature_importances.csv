@@ -1,0 +1,13 @@
+feature,importance
+domain_length,0.21393611044736702
+unique_character_count,0.14101387766254836
+number_of_special_characters,0.11964252239674916
+character_entropy,0.10993372526674791
+number_of_digits,0.0968401315867933
+consonant_count,0.06327589917975585
+number_of_letters,0.06223018850283966
+vowel_ratio,0.04810379869349947
+consonant_ratio,0.0460741308264923
+digit_ratio,0.040063291997817
+number_of_subdomains,0.03227160278121208
+vowel_count,0.026614720658178007

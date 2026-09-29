@@ -1,0 +1,30 @@
+{
+    "model_type": "RandomForestClassifier",
+    "n_estimators": 100,
+    "random_state": 42,
+    "feature_names": [
+        "domain_length",
+        "number_of_digits",
+        "digit_ratio",
+        "number_of_letters",
+        "number_of_special_characters",
+        "number_of_subdomains",
+        "vowel_count",
+        "consonant_count",
+        "vowel_ratio",
+        "consonant_ratio",
+        "unique_character_count",
+        "character_entropy"
+    ],
+    "classes": [
+        "Benign",
+        "DGA",
+        "DNS Tunnelling"
+    ],
+    "metrics": {
+        "accuracy": 0.8694,
+        "precision_weighted": 0.8698,
+        "recall_weighted": 0.8694,
+        "f1_weighted": 0.8696
+    }
+}
